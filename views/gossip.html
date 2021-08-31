@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>GossipChat by Mudit</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+    <nav>
+        <h2>Welcome to Gossip!</h2>
+        <img src="../static/chat.png" alt="chat-logo">
+    </nav>
+    <section id="container">
+        <div class="onlineDetails">
+            <h2><i class="fas fa-users" style="margin-right: 10px;"></i>Active Members</h2>
+            <ul id="list">
+            </ul>
+        </div>
+        <div id="messageBox">
+        <div class="interface">
+            <div class="outermsg">
+            </div>
+        </div>
+        <div class="form">
+            <input type="text" value="" placeholder="Enter the message" class="message">
+            <button class="emoji" style="font-size:larger; color: #232323;"><i class="fas fa-smile-beam"></i></button>
+            <button type="submit" class="btn"><i class="fas fa-paper-plane" style="font-size: larger; color: #232323;"></i></button>
+        </div>
+    </div>
+    </section>
+    <footer>
+        <div class="attribution">
+          Coded by
+          <a href="https://github.com/muditgupta68" target="_blank">MUDIT GUPTA</a
+          >
+        </div>
+      </footer>
+    <script src="./fgEmojiPicker.js"></script>
+    <script>
+        const emojiPicker = new FgEmojiPicker({
+            trigger: ['.emoji'],
+            removeOnSelection: false,
+            closeButton: true,
+            position: ['top', 'right'],
+            preFetch: true,
+            insertInto: document.querySelector('.message'),
+            emit(obj, triggerElement) {
+                console.log(obj, triggerElement);
+            }
+        });
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../static/client.js"></script>
+</body>
+</html>
